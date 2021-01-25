@@ -1,0 +1,16 @@
+.content{
+    width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }
+  .content__elem{
+    margin: 10px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
+    border-radius: 5px;
+    width: calc(((60vw - 260px - 80px - 64px) / 2));
+    height: 300px;
+  }
+  

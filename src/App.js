@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Search from './Search'
-import Content from './Content'
+import Search from './SearchMenu/Search'
+import Content from './Films/Content'
 
 function App() {
   return (

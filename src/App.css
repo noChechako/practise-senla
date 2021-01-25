@@ -4,37 +4,8 @@
   align-items: flex-start;
   align-content: flex-start;
 }
-.filter__elem{
-  margin: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    align-items: center;
-    padding: 14px 16px;
-    min-width: 260px;
-    width: 260px;
-    border: 1px solid #e3e3e3;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.filter span{
-    font-size:xx-large;
-}
-.content{
-  width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.content__elem{
-  margin: 10px;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
-  border-radius: 5px;
-  width: calc(((60vw - 260px - 80px - 64px) / 2));
-  height: 300px;
-}
+
 
 
 /* .App-logo {

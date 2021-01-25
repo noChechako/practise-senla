@@ -1,4 +1,4 @@
-import './App.css';
+import './Content.css';
 
 function Element(){
     return (<div class="content__elem ">

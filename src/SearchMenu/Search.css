@@ -1,0 +1,16 @@
+.filter__elem{
+    margin: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      align-items: center;
+      padding: 14px 16px;
+      min-width: 260px;
+      width: 260px;
+      border: 1px solid #e3e3e3;
+      border-radius: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .filter span{
+      font-size:xx-large;
+  }

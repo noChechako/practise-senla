@@ -27,21 +27,7 @@
     <title>React App</title>
   </head>
   <body>
-    <script>
-              let baseURL = 'https://api.themoviedb.org/3/';
-              let APIKEY= '6be28322108b286b7e45d15ac68bb3b2';
-              let getJSON = async function(){
-                let url = "".concat(baseURL, 'movie/550?api_key=', APIKEY); 
-                console.log(url)
-                let response = await fetch(url);
-                let json= await response.json();
-                console.log(json)
-              
-              }
-              getJSON();
-              
-
-    </script>
+  
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     
