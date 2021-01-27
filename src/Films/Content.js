@@ -2,6 +2,7 @@ import './Content.css';
 import React, { Component } from 'react';
 import axios from 'axios';
 import Element from './Element'
+import APIFilms from './APIFilms'
 
 
 class Content extends Component {
@@ -57,26 +58,37 @@ class Content extends Component {
     //         )
 
     // }
-    componentDidMount() {
-        const urlIMG='http://image.tmbd.org/t/p/w185';
+    async componentDidMount() {
 
-        const urlString = 'https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2';
-        axios.get(urlString)
-            .then(res => {
-                console.log(res)
-                this.setState({
-                    isLoaded: true,
-                    rows: res
-                });
-            },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+        // const urlString = 'https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2';
+        // axios.get(urlString)
+        //     .then(res => {
+        //         console.log(res)
+        //         this.setState({
+        //             isLoaded: true,
+        //             rows: res
+        //         });
+        //     },
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //         }
+        //     )
 
+     try {
+       let filmsData = await APIFilms();
+       this.setState({
+        isLoaded: true,
+        rows: filmsData
+    });
+     } catch (error) {
+        this.setState({
+            isLoaded: true,
+            error
+        });
+     }
     }
     render() {
 
