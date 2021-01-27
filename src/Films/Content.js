@@ -1,6 +1,7 @@
 import './Content.css';
-import Element from './Element';
 import React, { Component } from 'react';
+import axios from 'axios';
+import Element from './Element'
 
 
 class Content extends Component {
@@ -33,18 +34,39 @@ class Content extends Component {
 
 
     // }
-    componentDidMount() {
-        const urlString = 'https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2';
-        fetch(urlString)
-            .then(function (response) {
-                console.log(response)
-                return response.json()
-            })
-            .then((result) => {
+    // componentDidMount() {
+    //     const urlString = 'https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2';
+    //     fetch(urlString)
+    //         .then(function (response) {
+    //             console.log(response)
+    //             return response.json()
+    //         })
+    //         .then((result) => {
 
+    //             this.setState({
+    //                 isLoaded: true,
+    //                 rows: result
+    //             });
+    //         },
+    //             (error) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     error
+    //                 });
+    //             }
+    //         )
+
+    // }
+    componentDidMount() {
+        const urlIMG='http://image.tmbd.org/t/p/w185';
+
+        const urlString = 'https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2';
+        axios.get(urlString)
+            .then(res => {
+                console.log(res)
                 this.setState({
                     isLoaded: true,
-                    rows: result
+                    rows: res
                 });
             },
                 (error) => {
@@ -56,31 +78,28 @@ class Content extends Component {
             )
 
     }
-
     render() {
 
         const { error, isLoaded, rows } = this.state;
-// console.log(rows)
-        if (error) {
-            return (
+        return (error) ?  (
                 <span>
                     Error: {error.message}
-                </span>
-            );
-        } else if (!isLoaded) {
-            return (
+                  </span>
+            ) : (!isLoaded)?  
+              (
                 <span>
                     Loading...
                 </span>
-            );
-        } else {
-            return (
+            ) : (
                 <div className="content">
-                    {rows.results.map(row => <div class="content__elem">{row.original_title}</div>)}
+                    {rows.data.results.map(row=> (
+                        
+                        <Element row={row}/>
+                    ))}
                 </div>
-            );
+            )
         }
-    }
+    
 
 }
 

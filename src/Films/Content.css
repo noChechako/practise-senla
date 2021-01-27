@@ -10,7 +10,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   
     border-radius: 5px;
-    width: calc(((60vw - 260px - 80px - 64px) / 2));
+    width: 220px;
     height: 300px;
   }
   
