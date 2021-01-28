@@ -13,4 +13,20 @@
     width: 220px;
     height: 450px;
   }
+  .film{
+    margin: 10px;
+    color: white;
+    display:flex;
+    justify-content: flex-start;
+  }
   
+  .film__poster{
+    padding: 30px;
+    align-items: center;
+    width: 340px;
+    height: 510px;
+  }
+  .film span{
+    display: block;
+    padding-bottom: 10px;
+  }

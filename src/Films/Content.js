@@ -77,7 +77,7 @@ class Content extends Component {
         //     )
 
      try {
-       let filmsData = await APIFilms.get('/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2&language=ru');
+       const filmsData = await APIFilms.get('/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2');
        this.setState({
         isLoaded: true,
         rows: filmsData
