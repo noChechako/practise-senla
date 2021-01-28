@@ -1,8 +1,7 @@
 import './Content.css';
 import React, { Component } from 'react';
-import axios from 'axios';
 import Element from './Element'
-import APIFilms from './APIFilms'
+import APIFilms from '../data/APIFilms'
 
 
 class Content extends Component {
@@ -78,7 +77,7 @@ class Content extends Component {
         //     )
 
      try {
-       let filmsData = await APIFilms();
+       let filmsData = await APIFilms.get('/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2&language=ru');
        this.setState({
         isLoaded: true,
         rows: filmsData
