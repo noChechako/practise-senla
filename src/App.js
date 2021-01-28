@@ -6,8 +6,8 @@ import  { BrowserRouter,  Route, Switch } from 'react-router-dom'
 import React from 'react';
 
 
-class NotFound extends React.Component{
-  render(){
+function NotFound (){
+  {
       return <h2>Ресурс не найден</h2>;
   }
 }
