@@ -14,3 +14,6 @@
   .filter span{
       font-size:xx-large;
   }
+  .filter{
+      width: 300px;
+  }

@@ -1,8 +1,18 @@
-import './Content.css';
+// import './Content.css';
 import React, { Component } from 'react';
 import Element from './Element'
+import styled from '@emotion/styled';
+
 import APIFilms from '../data/APIFilms'
 
+const DivContent = styled.div(
+    {
+        width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap'
+    }
+)
 
 class Content extends Component {
     constructor(props) {
@@ -12,8 +22,6 @@ class Content extends Component {
             isLoaded: false,
             rows: []
         };
-
-
 
     }
     // getFilms() {
@@ -102,12 +110,12 @@ class Content extends Component {
                     Loading...
                 </span>
             ) : (
-                <div className="content">
+                <DivContent>
                     {rows.data.results.map(row=> (
                         
                         <Element row={row}/>
                     ))}
-                </div>
+                </DivContent>
             )
         }
     
