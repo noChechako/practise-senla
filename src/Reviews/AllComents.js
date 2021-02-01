@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import Coment from './Coment'
 import getData from '../data/getData'
+import styled from '@emotion/styled';
 
 
-
+const DivComent=styled.div(
+    {
+        width: '100%',
+        margin: '10px',
+         position: 'absolute',
+         top: '620px',
+    }
+)
 /* eslint-disable react/prop-types */
 
 class AllComents extends Component {
@@ -35,7 +43,6 @@ class AllComents extends Component {
     }
     render(){
         const { error, isLoaded, rows } = this.state;
-        console.log(rows)
         
        return (error) ?  (
                 <span>
@@ -47,13 +54,13 @@ class AllComents extends Component {
                     Loading...
                 </span>
             ) : (
-                <div className="coment">
+                <DivComent>
                 <h1>Reviews</h1>
                     {rows.data.results.map(row=> (
                         
                         <Coment row={row} key={row.id}/>
                     ))}
-                </div>
+                </DivComent>
             )
         
     }

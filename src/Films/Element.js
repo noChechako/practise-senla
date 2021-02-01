@@ -1,9 +1,7 @@
-// import './Content.css';
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled';
 import React  from 'react';
 
-// import { arrayOf, string } from 'prop-types';
 
 const DivContent=styled.div(
     {
@@ -18,12 +16,10 @@ const DivContent=styled.div(
 /* eslint-disable react/prop-types */
 let Element =(props)=> {
     
- const row=props.row;
-    console.log(row)
+
 
     const urlIMG = 'http://image.tmdb.org/t/p/w200' + props.row.poster_path;
     const link='/film/'+props.row.id;
-    console.log(props)
 
     return (
             <DivContent>
