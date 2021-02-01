@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
 import Coment from './Coment'
+import getData from '../data/getData'
 
 
-import APIFilms from '../data/APIFilms'
 
+/* eslint-disable react/prop-types */
 
 class AllComents extends Component {
     constructor(props) {
@@ -21,8 +21,7 @@ class AllComents extends Component {
 
     async componentDidMount() {
         try {
-            console.log()
-            const reviewsData = await APIFilms.get('/movie/'+this.props.id+'/reviews?api_key=6be28322108b286b7e45d15ac68bb3b2');
+            const reviewsData = await getData('/movie/'+this.props.id+'/reviews?api_key=6be28322108b286b7e45d15ac68bb3b2');
             this.setState({
              isLoaded: true,
              rows: reviewsData
@@ -48,11 +47,11 @@ class AllComents extends Component {
                     Loading...
                 </span>
             ) : (
-                <div class="coment">
+                <div className="coment">
                 <h1>Reviews</h1>
                     {rows.data.results.map(row=> (
                         
-                        <Coment row={row}/>
+                        <Coment row={row} key={row.id}/>
                     ))}
                 </div>
             )
@@ -60,4 +59,6 @@ class AllComents extends Component {
     }
 
 }
+/* eslint-enable react/prop-types */
+
 export default AllComents;

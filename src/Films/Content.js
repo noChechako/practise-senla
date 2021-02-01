@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import Element from './Element'
 import styled from '@emotion/styled';
-
-import APIFilms from '../data/APIFilms'
+import getData from '../data/getData'
 
 const DivContent = styled.div(
     {
@@ -85,7 +84,8 @@ class Content extends Component {
         //     )
 
      try {
-       const filmsData = await APIFilms.get('/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2');
+       const filmsData = await getData('/search/movie?query=marvel&api_key=6be28322108b286b7e45d15ac68bb3b2');
+       console.log(filmsData)
        this.setState({
         isLoaded: true,
         rows: filmsData
@@ -113,7 +113,7 @@ class Content extends Component {
                 <DivContent>
                     {rows.data.results.map(row=> (
                         
-                        <Element row={row}/>
+                        <Element row={row} key={row.id}/>
                     ))}
                 </DivContent>
             )

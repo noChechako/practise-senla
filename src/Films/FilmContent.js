@@ -14,6 +14,7 @@ const DivFilm = styled.div(
     props => ({ background: "linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(" + props.img + ") no-repeat" }),
     { backgroundSize: "100%" }
 );
+
 const Img = styled.img(
     {
         padding: "30px",
@@ -25,8 +26,9 @@ const Img = styled.img(
 
 
 
-function FilmContent(props) {
+let filmContent =(props)=> {
     const data = props.row.data;
+    console.log(data)
     let genres = data.genres.map(function (genres) {
         return genres.name;
     })
@@ -42,7 +44,7 @@ function FilmContent(props) {
             <Img  alt="poster" src={poster}></Img>
             <div>
                 <h1> {data.original_title} ({data.release_date.slice(0, 4)})</h1>
-                <span>{data.release_date} ({data.production_countries[0].iso_3166_1}) &bull; {genres.join(", ")}  &bull; {data.runtime}min</span>
+                <span>{data.release_date} ({data.production_countries[0].iso_3166_1}) &bull; {genres.join(", ")}  &bull; {data.runtime} min <br></br> <br></br></span>
                 <i>{data.tagline}</i>
                 <h2>Overview</h2>
                 <span>{data.overview}</span>
@@ -57,4 +59,4 @@ function FilmContent(props) {
 
 
 
-export default FilmContent;
+export default filmContent;
