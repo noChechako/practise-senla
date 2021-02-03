@@ -4,7 +4,7 @@ import React, {
 } from "react"
 import Element from './Element'
 import styled from '@emotion/styled';
-import getData from '../data/getData'
+import getData from '../../data/getData'
 import { useDispatch, useSelector } from 'react-redux';
 
 

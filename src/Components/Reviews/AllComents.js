@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Coment from './Coment'
-import getData from '../data/getData'
+import getData from '../../data/getData'
 import styled from '@emotion/styled';
 
 

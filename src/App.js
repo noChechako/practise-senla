@@ -1,28 +1,16 @@
 import './App.css';
-import Search from './SearchMenu/Search'
-import Content from './Films/Content'
-import Film from './Films/Film'
+import Search from './Components/SearchMenu/Search'
+import Content from './Components/Films/Content'
+import Film from './Components/Films/Film'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import React from 'react';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux';
-
+import React from 'react'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-undef */
-const defaultState = {
-  page: 1,
-  
-}
-const reducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case 'ADD_FILMS':
-      return { ...state, page: state.page + action.nextPage}
-    default: return state
-  }
-}
-const store = createStore(reducer)
+
 
 function NotFound() {
   {
