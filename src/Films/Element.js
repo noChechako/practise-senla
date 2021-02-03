@@ -16,17 +16,19 @@ const DivContent=styled.div(
 /* eslint-disable react/prop-types */
 let Element =(props)=> {
     
-
+    
 
     const urlIMG = 'http://image.tmdb.org/t/p/w200' + props.row.poster_path;
     const link='/film/'+props.row.id;
 
     return (
+        
             <DivContent>
                 <Link to={link}> {props.row.poster_path && <img alt="poster" width="220" height="350" src={urlIMG}></img>}</Link>
                 {props.row.title && <div >{props.row.title}</div>}
             </DivContent>
-        
+            
+            
 
     )
 

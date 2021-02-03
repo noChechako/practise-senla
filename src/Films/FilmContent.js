@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import AllComents from '../Reviews/AllComents'
+
 const Span=styled.span(
     {
         display: 'block',
@@ -37,7 +38,7 @@ let filmContent =(props)=> {
     let genres = data.genres.map(function (genres) {
         return genres.name;
     })
-
+  
     
     const imgBack = "http://image.tmdb.org/t/p/original" + data.backdrop_path;
     const poster = "http://image.tmdb.org/t/p/original" + data.poster_path;

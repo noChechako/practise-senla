@@ -1,8 +1,9 @@
   import React, {
     useState,
-    useEffect
-  } from "react";
- 
+    useEffect,
+   
+  } from "react"
+import {useParams} from "react-router"
 import FilmContent from '../Films/FilmContent'
 import getData from '../data/getData'
 
@@ -10,9 +11,11 @@ import getData from '../data/getData'
 
 
 
-let Film=(props)=>{
-  const req='/movie/' + props.match.params.id+ '?api_key=6be28322108b286b7e45d15ac68bb3b2';
-
+let Film=()=>{
+  
+  const {id}=useParams();
+  const req='/movie/' + id+ '?api_key=6be28322108b286b7e45d15ac68bb3b2';
+ 
   const [rows, setRow] = useState(null);
    useEffect(() => {
     getData(req).then(row => setRow(row));
