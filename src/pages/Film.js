@@ -4,8 +4,8 @@
    
   } from "react"
 import {useParams} from "react-router"
-import FilmContent from './FilmContent'
-import getData from '../../data/getData'
+import FilmContent from '../components/Films/FilmContent'
+import getData from '../data/getData'
 
 /* eslint-disable react/prop-types */
 

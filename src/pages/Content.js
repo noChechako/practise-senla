@@ -2,9 +2,9 @@ import React, {
     useState,
     useEffect,
 } from "react"
-import Element from './Element'
+import Element from '../components/Films/Element'
 import styled from '@emotion/styled';
-import getData from '../../data/getData'
+import getData from '../data/getData'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -50,10 +50,9 @@ function ListFilms(props) {
         getData(req).then(row => setRow(row));
 
     }, [props]);
-    console.log(req)
-    console.log(rows)
+
     if (rows == null) {
-        return (<p>Load</p>)
+        return (<p>Loading</p>)
     }
     return (
         <DivContent key={props.id}>
