@@ -4,9 +4,9 @@ import React, {
 } from "react"
 import Element from '../components/Films/Element'
 import styled from '@emotion/styled';
-import getData from '../data/getData'
-import getFilms from '../store/loadFilms'
-import { useDispatch, useSelector } from 'react-redux';
+import getFilms from '../data/getFilms'
+import loadFilms from '../store/loadFilms'
+import { useDispatch, useSelector} from 'react-redux';
 
 
 
@@ -25,15 +25,14 @@ function Content() {
     const dispatch = useDispatch();
     const page = useSelector(state => state.page)
 
-    const req = `/movie/popular?api_key=6be28322108b286b7e45d15ac68bb3b2&language=en&page=${page}`;
     const [rows, setRow] = useState(null);
     useEffect(() => {
-        getData(req).then(row => setRow(row));
+        getFilms(page).then(row => setRow(row));
 
     }, [rows]);
-
+    console.log(page)
     if (rows == null) {
-        return (<p>Loading</p>)
+        return (<p>Loadinag</p>)
     }
     return (<> <DivContent >
         {rows.data.results.map(row => (
@@ -41,7 +40,7 @@ function Content() {
             <Element row={row} key={row.id} />
         ))}
     </DivContent>
-        <button onClick={() => getFilms(dispatch)}>{page}</button></>
+        <button onClick={() => loadFilms(dispatch)}>{page}</button></>
     )
 
 
@@ -49,9 +48,6 @@ function Content() {
 
 
 }
-/* eslint-disable react/prop-types */
 
-
-/* eslint-enable react/prop-types */
 
 export default Content;

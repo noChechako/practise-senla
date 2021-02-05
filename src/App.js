@@ -3,7 +3,7 @@ import Search from './components/SearchMenu/Search'
 
 import React from 'react'
 import { Provider } from 'react-redux'
-import store from './store/store'
+import {store as store} from './store/store'
 import CreateRoute from './routes/createRoute'
 
 

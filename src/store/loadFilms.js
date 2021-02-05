@@ -1,5 +1,5 @@
-const getFilms = (dispatch) => {
-    dispatch({ type: 'ADD_FILMS', nextPage: 1 })
+const loadFilms = (dispatch) => {
+    dispatch({ type: 'ADD_FILMS', nextPage:1 })
 
 }
-export default getFilms;
+export default loadFilms;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, } from 'react';
 import Coment from './Coment'
-import getData from '../../data/getData'
+import getData from '../../data/getFilm'
 import styled from '@emotion/styled';
 
 const DivComent = styled.div(

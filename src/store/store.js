@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
  /* eslint-enabled no-undef */
 
-const defaultState = {
+  const defaultState = {
     page: 1,
     
   }
@@ -12,6 +12,8 @@ const defaultState = {
       default: return state
     }
   }
-  const store = createStore(reducer)
-  export default store;
- /* eslint-disabled no-undef */
+   const store = createStore(reducer)
+   /* eslint-disabled no-undef */
+
+ 
+   export {defaultState as defaultState, store as store};
