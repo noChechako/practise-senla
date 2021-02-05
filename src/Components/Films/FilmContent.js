@@ -40,8 +40,8 @@ let filmContent =(props)=> {
     })
   
     
-    const imgBack = "http://image.tmdb.org/t/p/original" + data.backdrop_path;
-    const poster = "http://image.tmdb.org/t/p/original" + data.poster_path;
+    const imgBack = `http://image.tmdb.org/t/p/original${data.backdrop_path}`;
+    const poster = `http://image.tmdb.org/t/p/original${data.poster_path}`;
 
     return (
 <>

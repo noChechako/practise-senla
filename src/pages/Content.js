@@ -5,6 +5,7 @@ import React, {
 import Element from '../components/Films/Element'
 import styled from '@emotion/styled';
 import getData from '../data/getData'
+import getFilms from '../store/loadFilms'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -24,16 +25,23 @@ function Content() {
     const dispatch = useDispatch();
     const page = useSelector(state => state.page)
 
-    const req = '/movie/popular?api_key=6be28322108b286b7e45d15ac68bb3b2&language=en&page=' + page;
-    const getFilms = () => {
-        dispatch({ type: 'ADD_FILMS', nextPage: 1 })
+    const req = `/movie/popular?api_key=6be28322108b286b7e45d15ac68bb3b2&language=en&page=${page}`;
+    const [rows, setRow] = useState(null);
+    useEffect(() => {
+        getData(req).then(row => setRow(row));
 
+    }, [rows]);
+
+    if (rows == null) {
+        return (<p>Loading</p>)
     }
+    return (<> <DivContent >
+        {rows.data.results.map(row => (
 
-
-    return (<><ListFilms props={req} id={page} />
-
-        <button onClick={() => getFilms()}>{page}</button></>
+            <Element row={row} key={row.id} />
+        ))}
+    </DivContent>
+        <button onClick={() => getFilms(dispatch)}>{page}</button></>
     )
 
 
@@ -43,25 +51,7 @@ function Content() {
 }
 /* eslint-disable react/prop-types */
 
-function ListFilms(props) {
-    const req = props.props;
-    const [rows, setRow] = useState(null);
-    useEffect(() => {
-        getData(req).then(row => setRow(row));
 
-    }, [props]);
-
-    if (rows == null) {
-        return (<p>Loading</p>)
-    }
-    return (
-        <DivContent key={props.id}>
-            {rows.data.results.map(row => (
-
-                <Element row={row} key={row.id} />
-            ))}
-        </DivContent>)
-}
 /* eslint-enable react/prop-types */
 
 export default Content;

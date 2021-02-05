@@ -14,7 +14,7 @@ import getData from '../data/getData'
 let Film=()=>{
   
   const {id}=useParams();
-  const req='/movie/' + id+ '?api_key=6be28322108b286b7e45d15ac68bb3b2';
+  const req=`/movie/${id}?api_key=6be28322108b286b7e45d15ac68bb3b2`;
  
   const [rows, setRow] = useState(null);
    useEffect(() => {
