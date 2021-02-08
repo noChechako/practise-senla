@@ -13,7 +13,7 @@ const DivComent = styled.div(
 )
 /* eslint-disable react/prop-types */
 
-let AllComents = (props) => {
+const AllComents = (props) => {
 
 
 

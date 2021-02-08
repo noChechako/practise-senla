@@ -20,7 +20,7 @@ const DivContent = styled.div(
     }
 )
 
-function Content() {
+const Content =()=> {
 
     const dispatch = useDispatch();
     const page = useSelector(state => state.page)
@@ -32,7 +32,7 @@ function Content() {
     }, [rows]);
     console.log(page)
     if (rows == null) {
-        return (<p>Loadinag</p>)
+        return (<p>Loading</p>)
     }
     return (<> <DivContent >
         {rows.data.results.map(row => (
