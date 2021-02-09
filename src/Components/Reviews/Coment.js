@@ -1,20 +1,62 @@
 import React from 'react';
-let coment =function Coment(props){
-   
-  
-    const img =0 && props.row.author_details.avatar_path.slice();
-    
-
-return(
-   <>
-        <div>
-         <img alt="avatar" src={img}></img> 
-         <span>{props.row.author}</span>
-    </div>
-    <div>{props.row.content}</div> 
-   </>
-
+import styled from '@emotion/styled';
+const Img = styled.img(
+    {
+        padding: "10px",
+        width: "140px",
+        height: "140px"
+    }
 )
-}
+const DivContain = styled.div(
+    {
+        paddingTop: "20px",
+        display: "flex",
+        justifyContent: "flex-start"
+    }
+)
+const DivImg = styled.div(
+    {
+    }
+)
+const DivText = styled.div(
+    {
+      
 
-export default coment;
+    }
+)
+const Span = styled.span(
+    {
+    }
+)
+/* eslint-disable react/prop-types */
+
+let Coment = (props) => {
+    let img = props.row.author_details.avatar_path;
+    img ? ((!img.includes('secure.gravatar')) ?
+        img = `http://image.tmdb.org/t/p/original${props.row.author_details.avatar_path}`
+        :
+        img = img.slice(1)) :
+        img = `https://aikidojo.lv/wp-content/uploads/2019/08/nophoto.jpg`
+
+
+    console.log(img)
+    return (
+        <>
+            <DivContain>
+                <DivImg>
+                    <Img alt="avatar" src={img}></Img>
+
+                    <Span>{props.row.author}</Span>
+                </DivImg>
+
+
+                <DivText>{props.row.content}</DivText>
+
+            </DivContain>
+        </>
+
+    )
+}
+/* eslint-enable react/prop-types */
+
+export default Coment;

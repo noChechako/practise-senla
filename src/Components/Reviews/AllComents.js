@@ -1,6 +1,7 @@
 import React, { useState, useEffect, } from 'react';
 import Coment from './Coment'
-import getData from '../../data/getFilm'
+import getComents from '../../data/getComents'
+
 import styled from '@emotion/styled';
 
 const DivComent = styled.div(
@@ -11,17 +12,21 @@ const DivComent = styled.div(
         top: '620px',
     }
 )
+const H1=styled.h1(
+    {
+        textAlign:"center"
+    }
+)
 /* eslint-disable react/prop-types */
 
 const AllComents = (props) => {
 
 
-
-    const req = '/movie/' + props.id + '/reviews?api_key=6be28322108b286b7e45d15ac68bb3b2';
+const id=props.id;
 
     const [rows, setRow] = useState(null);
     useEffect(() => {
-        getData(req).then(row => setRow(row));
+        getComents(id).then(row => setRow(row));
 
     }, []);
 
@@ -30,7 +35,7 @@ const AllComents = (props) => {
     }
     return (
         <DivComent>
-            <h1>Reviews</h1>
+            <H1>Reviews</H1>
             {rows.data.results.map(row => (
 
                 <Coment row={row} key={row.id} />
