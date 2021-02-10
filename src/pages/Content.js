@@ -30,7 +30,6 @@ const Content =()=> {
         getFilms(page).then(row => setRow(row));
 
     }, [rows]);
-    console.log(page)
     if (rows == null) {
         return (<p>Loading</p>)
     }

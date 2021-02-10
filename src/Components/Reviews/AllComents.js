@@ -9,7 +9,7 @@ const DivComent = styled.div(
         width: '100%',
         margin: '10px',
         position: 'absolute',
-        top: '620px',
+        top: '1020px',
     }
 )
 const H1=styled.h1(
