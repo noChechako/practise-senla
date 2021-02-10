@@ -55,7 +55,7 @@ let filmContent =(props)=> {
                 console.log(urlParams)
                 setTrailerUrl(urlParams.get('v'));
             })
-            .catch(() => console.log('Temporary Unavailable'))
+            .catch(() => console.log('Error'))
         }
         
 
@@ -80,7 +80,7 @@ let filmContent =(props)=> {
                 <h1> {data.original_title} ({data.release_date.slice(0, 4)})</h1>
                 <Span>{data.release_date} ({data.production_countries[0].iso_3166_1}) &bull; {genres.join(", ")}  &bull; {data.runtime} min </Span>
                 <i>{data.tagline} <br></br></i>
-                <div onClick={()=>handleClick(data.id)} >Вопсроизвести трейлер</div>
+                <div onClick={()=>handleClick(data.id)} >Trailer</div>
                 <h2>Overview</h2>
                 <span>{data.overview}</span>
                 <div>  {trailerUrl && <YouTube videoId = {trailerUrl} opts = {opts}/> }</div>
