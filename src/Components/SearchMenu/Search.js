@@ -3,6 +3,7 @@ eslint linebreak-style: ["error", "windows"]
 */
 import React from 'react';
 import styled from '@emotion/styled';
+import SearchFilters from './SearchFilters';
 
 const DivFilter = styled.div({
   width: '300px',
@@ -33,7 +34,10 @@ function Search() {
   return (
     <DivFilter>
       <Field name="Сортировать" />
-      <Field name="Фильтры" />
+      <SearchFilters> <DivFilterElement>
+    <h2>Filters</h2>
+    <span> &#62; </span>
+  </DivFilterElement></SearchFilters>
       <Field name="Где посмотреть" />
     </DivFilter>
   );

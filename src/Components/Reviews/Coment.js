@@ -35,7 +35,6 @@ const Coment = ({ row }) => {
   } else {
     img = 'https://aikidojo.lv/wp-content/uploads/2019/08/nophoto.jpg';
   }
-  console.log(img);
   return (
     <>
       <DivContain>
