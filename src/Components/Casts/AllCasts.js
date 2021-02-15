@@ -1,57 +1,48 @@
-import React, { useState, useEffect, } from 'react';
-// import Coment from './Coment'
-import getCasts from '../../data/getCasts'
-import Cast from '../Casts/Cast'
+/*
+eslint linebreak-style: ["error", "windows"]
+*/
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+import getCasts from '../../data/getCasts';
+import Cast from './Cast';
 
 const DivCasts = styled.div(
-    {
-        width: '100%',
-        margin: '10px',
-        position: 'absolute',
-        top: '620px',
-        overflowX:"scroll"
-    }
-)
+  {
+    width: '100%',
+    margin: '10px',
+    position: 'absolute',
+    top: '620px',
+    overflowX: 'scroll',
+  },
+);
 const Ul = styled.ul(
-    {
-        display:"flex",
-        
-    }
-)
-/* eslint-disable react/prop-types */
+  {
+    display: 'flex',
 
-const AllCasts = (props) => {
+  },
+);
 
+const AllCasts = ({ id }) => {
+  const [rows, setRow] = useState(null);
 
-    const id = props.id;
+  useEffect(() => {
+    getCasts(id).then((row) => setRow(row));
+  }, [id]);
 
-    const [rows, setRow] = useState(null);
-    useEffect(() => {
-        getCasts(id).then(row => setRow(row));
+  if (rows === null) {
+    return <div>Loading</div>;
+  }
 
-    }, []);
-    if (rows === null) {
-        return <div>Loading</div>;
-    }
-
-
-    return (
-        <DivCasts>
-            <h1 >Casts</h1>
-            <Ul>
-                {rows.data.cast.map(row => (
-
-                    <Cast row={row} key={row.id} />
-                ))}
-            </Ul>
-
-        </DivCasts>
-    )
-
-
-
-}
-/* eslint-enable react/prop-types */
+  return (
+    <DivCasts>
+      <h1>Casts</h1>
+      <Ul>
+        {rows.data.cast.map((row) => (
+          <Cast row={row} key={row.id} />
+        ))}
+      </Ul>
+    </DivCasts>
+  );
+};
 
 export default AllCasts;

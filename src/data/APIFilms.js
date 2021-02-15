@@ -1,7 +1,8 @@
+/*
+eslint linebreak-style: ["error", "windows"]
+*/
 import axios from 'axios';
 
-
-    export default axios.create({
-        baseURL: "https://api.themoviedb.org/3",
-      });
-      
+export default axios.create({
+  baseURL: 'https://api.themoviedb.org/3',
+});
