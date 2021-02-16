@@ -24,6 +24,12 @@ const DivFilterElement = styled.div(
     justifyContent: 'space-between',
   },
 );
+const Content = styled.div(
+  {
+    display: 'block',
+    borderTop: '1px solid #e3e3e3',
+  },
+);
 const Field = ({ name }) => (
   <DivFilterElement>
     <h2>{name}</h2>
@@ -34,7 +40,7 @@ function Search() {
   return (
     <DivFilter>
       <Field name="Сортировать" />
-      <SearchFilters> <DivFilterElement>
+      <SearchFilters style={Content}> <DivFilterElement>
     <h2>Filters</h2>
     <span> &#62; </span>
   </DivFilterElement></SearchFilters>

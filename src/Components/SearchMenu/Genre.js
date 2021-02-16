@@ -3,13 +3,7 @@ eslint linebreak-style: ["error", "windows"]
 */
 import React from 'react';
 import styled from '@emotion/styled';
-/* eslint-disable @typescript-eslint/indent */
-/* eslint-disable eol-last */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable @typescript-eslint/brace-style */
-/* eslint-disable @typescript-eslint/semi */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable arrow-body-style */
+
 const Li = styled.li`
     cursor:pointer;
     display: inline-flex;
@@ -23,13 +17,10 @@ const Li = styled.li`
         background-color: #00FFFF;
       }
 `;
-const Genre = (props) => {
-    return (
-        <>
+const Genre = (props) => <>
             <Li data-value={props.row.id}>
                 {props.row.name}
             </Li>
-        </>
-    )
-}
+        </>;
+
 export default Genre;

@@ -8,12 +8,7 @@ import AllComents from '../Reviews/AllComents';
 import AllCasts from '../Casts/AllCasts';
 import getTrailer from '../../data/getTrailer';
 
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/indent */
-/* eslint-disable  @typescript-eslint/semi */
-/* eslint-disable  no-trailing-spaces */
 /* eslint-disable   no-underscore-dangle */
-/* eslint-disable  arrow-parens */
 
 const Span = styled.span(
   {
@@ -57,31 +52,31 @@ const opts = {
 };
 const Video = styled.div(
   {
-      position: 'absolute',
-  top: '50%',
-  left: '50%',
-  marginRight: '-50%',
-  transform: 'translate(-50%, -50%)',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
   },
 );
 
 const Modal = styled.div(
   {
-      display: 'none',
-      position: 'fixed',
-      top: '0',
-      right: '0',
-      left: '0',
-      bottom: '0',
-      background: 'rgb(0, 0, 0, 0.5)',
+    display: 'none',
+    position: 'fixed',
+    top: '0',
+    right: '0',
+    left: '0',
+    bottom: '0',
+    background: 'rgb(0, 0, 0, 0.5)',
   },
 );
 const Close = styled.div(
   {
-      cursor: 'pointer',
-      position: 'absolute',
-      top: '-5px',
-      left: '710px',
+    cursor: 'pointer',
+    position: 'absolute',
+    top: '-5px',
+    left: '710px',
   },
 );
 const FilmContent = ({ row }) => {
@@ -95,8 +90,7 @@ const FilmContent = ({ row }) => {
     } else {
       getTrailer(movie)
         .then((res) => {
-          console.log(res.data)
-          const id = res.data.results.find(item => item.type === 'Trailer')
+          const id = res.data.results.find((item) => (item.type === 'Trailer'));
           Modal.__emotion_styles[0].display = 'block';
           setTrailerUrl(id.key);
         })
@@ -106,8 +100,8 @@ const FilmContent = ({ row }) => {
 
   const handleClose = () => {
     setTrailerUrl('');
-    Modal.__emotion_styles[0].display = 'none'
-}
+    Modal.__emotion_styles[0].display = 'none';
+  };
 
   const imgBack = `http://image.tmdb.org/t/p/original${data.backdrop_path}`;
   const poster = `http://image.tmdb.org/t/p/original${data.poster_path}`;
